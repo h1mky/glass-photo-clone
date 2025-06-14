@@ -1,0 +1,27 @@
+# Executables and test binaries
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Build directories
+/bin/
+/build/
+/dist/
+/pkg/
+
+# Go tools
+*.log
+*.tmp
+
+# golangci-lint
+.golangci.cache
+
+# IDEs
+.vscode/
+.idea/
+*.iml
+
+env
