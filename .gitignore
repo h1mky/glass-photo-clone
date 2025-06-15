@@ -24,4 +24,5 @@
 .idea/
 *.iml
 
+.env
 env
