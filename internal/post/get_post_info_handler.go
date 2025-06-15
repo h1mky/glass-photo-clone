@@ -7,7 +7,7 @@ import (
 	"strconv"
 )
 
-func getPostByIDHandler(w http.ResponseWriter, r *http.Request) {
+func GetPostByIDHandler(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
 
 	postID, err := strconv.Atoi(chi.URLParam(r, "id"))

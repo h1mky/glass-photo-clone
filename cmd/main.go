@@ -13,9 +13,12 @@ func main() {
 	if err != nil {
 		log.Fatalf("Error loading .env file,%s", err)
 	}
+
 	db.Connect()
 	defer db.DB.Close()
+
 	post.PostRouter()
+
 	router.StartServer()
 
 }
