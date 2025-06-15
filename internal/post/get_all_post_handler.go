@@ -5,7 +5,7 @@ import (
 	"net/http"
 )
 
-func getAllPostHandler(w http.ResponseWriter, r *http.Request) {
+func GetAllPostHandler(w http.ResponseWriter, r *http.Request) {
 
 	ctx := r.Context()
 
