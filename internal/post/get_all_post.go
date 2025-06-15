@@ -8,12 +8,12 @@ import (
 	"time"
 )
 
-func getAllPost(ctx context.Context) ([]MainPagePosts, error) {
+func getAllPost(ctx context.Context) ([]MainPagePost, error) {
 
 	ctx, cancel := context.WithTimeout(ctx, 5*time.Second)
 
 	defer cancel()
-	var posts []MainPagePosts
+	var posts []MainPagePost
 
 	query := `
 		SELECT
@@ -25,7 +25,6 @@ func getAllPost(ctx context.Context) ([]MainPagePosts, error) {
 		JOIN users AS u ON p.user_id = u.id
 		ORDER BY p.created_at DESC
 	`
-
 	if err := db.DB.SelectContext(ctx, &posts, query); err != nil {
 
 		log.Println("Error fetching a posts", err)
