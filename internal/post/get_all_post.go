@@ -3,17 +3,16 @@ package post
 import (
 	"context"
 	"glass-photo/internal/db"
-
 	"log"
 	"time"
 )
 
-func getAllPost(ctx context.Context) ([]MainPagePosts, error) {
+func getAllPost(ctx context.Context) ([]MainPagePost, error) {
 
 	ctx, cancel := context.WithTimeout(ctx, 5*time.Second)
 
 	defer cancel()
-	var posts []MainPagePosts
+	var posts []MainPagePost
 
 	query := `
 		SELECT
