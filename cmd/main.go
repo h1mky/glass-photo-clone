@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/joho/godotenv"
+	"glass-photo/internal/db"
 	"glass-photo/internal/router"
 	"log"
 )
