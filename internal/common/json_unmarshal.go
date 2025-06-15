@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-func jsonParse(w http.ResponseWriter, r *http.Request, req interface{}) error {
+func JsonParse(w http.ResponseWriter, r *http.Request, req interface{}) error {
 
 	body, err := io.ReadAll(r.Body)
 	if err != nil {

@@ -7,15 +7,21 @@ import (
 	"os"
 )
 
+var R *chi.Mux
+
+func init() {
+	R = chi.NewRouter()
+}
+
 func StartServer() {
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "3000"
 	}
+	
+	log.Printf("Starting server on port %s...\n", port)
 
-	R := chi.NewRouter()
 	if err := http.ListenAndServe(":"+port, R); err != nil {
 		log.Fatal(err)
 	}
-
 }

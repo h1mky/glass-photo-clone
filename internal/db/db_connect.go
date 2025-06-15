@@ -3,13 +3,15 @@ package db
 import (
 	"fmt"
 	"github.com/jmoiron/sqlx"
+	_ "github.com/lib/pq"
 	"log"
 	"os"
 )
 
 var DB *sqlx.DB
 
-func dbConnect() {
+func Connect() {
+
 	connect := os.Getenv("DB_CONNECT")
 	dsn := fmt.Sprintf("%s", connect)
 

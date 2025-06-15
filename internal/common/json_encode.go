@@ -6,11 +6,12 @@ import (
 	"net/http"
 )
 
-func jsonEncode(w http.ResponseWriter, posts any) {
+func JsonEncode(w http.ResponseWriter, data any) {
 	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK) //
+	if err := json.NewEncoder(w).Encode(data); err != nil {
 
-	if err := json.NewEncoder(w).Encode(posts); err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
 		log.Printf("Error encoding JSON: %v\n", err)
+
 	}
 }
