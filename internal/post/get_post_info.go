@@ -1,11 +1,18 @@
 package post
 
 import (
+	"context"
 	"fmt"
-	"github.com/jmoiron/sqlx"
+	"glass-photo/internal/db"
+	"time"
 )
 
-func GetPostByID(db *sqlx.DB, postID int) ([]PostWithComments, error) {
+func GetPostByID(ctx context.Context, postID int) ([]PostWithComments, error) {
+
+	ctx, cancel := context.WithTimeout(ctx, 5*time.Second)
+
+	defer cancel()
+
 	query := `
         SELECT
             p.id AS post_id,
@@ -26,7 +33,7 @@ func GetPostByID(db *sqlx.DB, postID int) ([]PostWithComments, error) {
             p.id = $1`
 
 	var post []PostWithComments
-	err := db.Select(&post, query, postID)
+	err := db.DB.SelectContext(ctx, &post, query, postID)
 	if err != nil {
 		return nil, fmt.Errorf("error getting post: %w", err)
 	}
