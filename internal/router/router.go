@@ -18,7 +18,7 @@ func StartServer() {
 	if port == "" {
 		port = "3000"
 	}
-	
+
 	log.Printf("Starting server on port %s...\n", port)
 
 	if err := http.ListenAndServe(":"+port, R); err != nil {
