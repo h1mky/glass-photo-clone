@@ -5,6 +5,7 @@ import (
 	"glass-photo/internal/db"
 	"glass-photo/internal/post"
 	"glass-photo/internal/router"
+	"glass-photo/internal/user"
 	"log"
 )
 
@@ -18,6 +19,7 @@ func main() {
 	defer db.DB.Close()
 
 	post.PostRouter()
+	user.UserRouter()
 
 	router.StartServer()
 
