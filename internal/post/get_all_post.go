@@ -8,14 +8,25 @@ import (
 	"time"
 )
 
-func getAllPost(ctx context.Context) ([]Post, error) {
+func getAllPost(ctx context.Context) ([]MainPagePosts, error) {
 
 	ctx, cancel := context.WithTimeout(ctx, 5*time.Second)
 
 	defer cancel()
-	var posts []Post
+	var posts []MainPagePosts
 
-	if err := db.DB.SelectContext(ctx, &posts, `SELECT * FROM posts ORDER BY created_at DESC `); err != nil {
+	query := `
+		SELECT
+			p.id,
+			p.title,
+			p.post_img,
+			u.username
+		FROM posts AS p
+		JOIN users AS u ON p.user_id = u.id
+		ORDER BY p.created_at DESC
+	`
+
+	if err := db.DB.SelectContext(ctx, &posts, query); err != nil {
 
 		log.Println("Error fetching a posts", err)
 		return nil, err
