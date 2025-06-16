@@ -9,7 +9,7 @@ type MainPagePost struct {
 	Username string `db:"username" json:"username"`
 }
 
-type PostWithComments struct {
+type PostInfo struct {
 	PostID       int       `db:"post_id"`
 	Title        string    `db:"title"`
 	PostImg      string    `db:"post_img"`

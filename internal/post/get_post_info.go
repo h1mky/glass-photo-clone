@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-func GetPostByID(ctx context.Context, postID int) ([]PostWithComments, error) {
+func GetPostByID(ctx context.Context, postID int) (PostInfo, error) {
 
 	ctx, cancel := context.WithTimeout(ctx, 5*time.Second)
 
@@ -28,10 +28,10 @@ WHERE
     p.id = $1
 `
 
-	var post []PostWithComments
-	err := db.DB.SelectContext(ctx, &post, query, postID)
+	var post PostInfo
+	err := db.DB.GetContext(ctx, &post, query, postID)
 	if err != nil {
-		return nil, fmt.Errorf("error getting post: %w", err)
+		return post, fmt.Errorf("error getting post: %w", err)
 	}
 
 	return post, nil
