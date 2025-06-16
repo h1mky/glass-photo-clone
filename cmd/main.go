@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/joho/godotenv"
+	"glass-photo/internal/comment"
 	"glass-photo/internal/db"
 	"glass-photo/internal/post"
 	"glass-photo/internal/router"
@@ -20,6 +21,7 @@ func main() {
 
 	post.PostRouter()
 	user.UserRouter()
+	comment.CommentRoute()
 
 	router.StartServer()
 

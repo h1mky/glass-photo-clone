@@ -18,6 +18,7 @@ func getAllComments(ctx context.Context, idPost int) ([]Comments, error) {
 SELECT c.post_id,c.user_id,c.content,c.created_at,u.username
 FROM comments as c
 JOIN users as u on c.user_id = u.id
+WHERE c.post_id = $1
 ORDER BY created_at DESC
 	`
 
