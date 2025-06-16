@@ -13,7 +13,7 @@ func getProfilePage(ctx context.Context, id int) (UserPage, error) {
 
 	var profile UserPage
 	userQuery := `
-	SELECT id, username, user_img 
+	SELECT id, username, user_img,description
 	FROM users 
 	WHERE id = $1
 	`

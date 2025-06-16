@@ -18,7 +18,7 @@ func GetPostByIDHandler(w http.ResponseWriter, r *http.Request) {
 
 	post, err := GetPostByID(ctx, postID)
 	if err != nil {
-		http.Error(w, "unavailiable to get post", http.StatusServiceUnavailable)
+		http.Error(w, "unavailable to get post", http.StatusServiceUnavailable)
 		return
 	}
 
