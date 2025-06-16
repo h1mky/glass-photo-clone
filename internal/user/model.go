@@ -8,3 +8,7 @@ type UserPage struct {
 	ProfilePhoto string              `db:"user_img" json:"user_img"`
 	Posts        []post.MainPagePost `db:"posts" json:"posts"`
 }
+type MainPageRegistered struct {
+	Id           int    `db:"id" json:"id"`
+	ProfilePhoto string `db:"user_img" json:"user_img"`
+}
