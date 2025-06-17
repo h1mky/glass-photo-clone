@@ -1,7 +1,9 @@
 package auth
 
+import "github.com/go-playground/validator/v10"
+
 type UserInputRegister struct {
-	Email    string `json:"email" db:"email"`
-	Password string `json:"password" db:"password"`
-	Username string `json:"username" db:"username"`
+	Email    string `json:"email" db:"email" validate:"required,email"`
+	Password string `json:"password" db:"password" validate:"required,min=8"`
+	Username string `json:"username" db:"username" validate:"required"`
 }

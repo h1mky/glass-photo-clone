@@ -13,6 +13,14 @@ func createNewUserHandler(w http.ResponseWriter, r *http.Request) {
 	if err := common.JsonParse(w, r, &user); err != nil {
 		http.Error(w, "invalid json", http.StatusBadRequest)
 		return
+
+	}
+
+	user.Password = common.HashPasswordSHA256(user.Password)
+
+	if err := common.ValidateStruct(user); err != nil {
+		http.Error(w, "error on validate json", http.StatusBadRequest)
+		return
 	}
 
 	if err := createNewUserPostgres(ctx, user); err != nil {
