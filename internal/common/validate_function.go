@@ -6,8 +6,8 @@ import (
 
 var validate = validator.New()
 
-func ValidateStruct(user interface{}) error {
-	err := validate.Struct(user)
+func ValidateStruct(input any) error {
+	err := validate.Struct(input)
 	if err != nil {
 		return err
 	}
