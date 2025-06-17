@@ -12,8 +12,9 @@ func createPostPostgres(ctx context.Context, post CreatePostRequest, userID int)
 	defer cancel()
 
 	query := `
-	INSERT INTO posts (user_id, post_img, title, description)
-	VALUES ($1, $2, $3, $4)
+		INSERT INTO posts (user_id, post_img, title, description, created_at)
+		VALUES ($1, $2, $3, $4, NOW())
+
 	`
 	_, err := db.DB.ExecContext(ctx, query, userID, post.PostImg, post.Title, post.Description)
 	if err != nil {

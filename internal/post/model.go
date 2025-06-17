@@ -20,6 +20,6 @@ type PostInfo struct {
 
 type CreatePostRequest struct {
 	Title       string `json:"title" db:"title" validate:"required"`
-	PostImg     string `json:"post_img" db:"post_img" validate:"required"`
+	PostImg     string `json:"post_img" db:"post_img" validate:"required,url"`
 	Description string `json:"description" db:"description"`
 }
