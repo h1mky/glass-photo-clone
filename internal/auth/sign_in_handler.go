@@ -25,13 +25,13 @@ func SignInHandler(w http.ResponseWriter, r *http.Request) {
 
 	userId, err := signInPostgres(ctx, user)
 	if err != nil {
-		http.Error(w, fmt.Sprintf("failed to sign in: %v", err), http.StatusInternalServerError)
+		http.Error(w, fmt.Sprintf("failed to sign in: %v", err), http.StatusBadRequest)
 		return
 	}
 
 	token, err := common.GenerateJWT(userId, user.Email)
 	if err != nil {
-		http.Error(w, fmt.Sprintf("failed to generate token: %v", err), http.StatusInternalServerError)
+		http.Error(w, fmt.Sprintf("failed to generate token: %v", err), http.StatusBadRequest)
 		return
 	}
 	w.Header().Set("Content-Type", "application/json")

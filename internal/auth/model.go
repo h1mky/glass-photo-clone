@@ -10,5 +10,5 @@ type UserInputRegister struct {
 
 type UserInputSignIn struct {
 	Email    string `json:"email" db:"email" validate:"required,email"`
-	Password string `json:"password" db:"password" validate:"required,min=8"`
+	Password string `json:"password" db:"password" validate:"required"`
 }

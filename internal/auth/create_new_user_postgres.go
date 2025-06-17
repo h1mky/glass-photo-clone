@@ -2,6 +2,7 @@ package auth
 
 import (
 	"context"
+	"fmt"
 	"glass-photo/internal/db"
 	"time"
 )
@@ -16,7 +17,7 @@ INSERT INTO users (username, password,email) VALUES (:username, :password, :emai
 		`
 
 	if _, err := db.DB.NamedExecContext(ctx, query, register); err != nil {
-		return err
+		return fmt.Errorf("error creating user: %w", err)
 	}
 	return nil
 }

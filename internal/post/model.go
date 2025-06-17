@@ -17,3 +17,9 @@ type PostInfo struct {
 	PostAuthor   string    `db:"post_author"`
 	PostAuthorID int       `db:"post_author_id"`
 }
+
+type CreatePostRequest struct {
+	Title       string `json:"title" db:"title" validate:"required"`
+	PostImg     string `json:"post_img" db:"post_img" validate:"required"`
+	Description string `json:"description" db:"description"`
+}
