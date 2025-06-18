@@ -15,7 +15,7 @@ func getAllComments(ctx context.Context, idPost int) ([]Comments, error) {
 	var comments []Comments
 
 	query := `
-SELECT c.post_id,c.user_id,c.content,c.created_at,u.username
+SELECT c.id,c.post_id,c.user_id,c.content,c.created_at,u.username
 FROM comments as c
 JOIN users as u on c.user_id = u.id
 WHERE c.post_id = $1

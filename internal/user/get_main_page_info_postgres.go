@@ -19,7 +19,7 @@ FROM users
 where id = $1
 	`
 	if err := db.DB.GetContext(ctx, &userInfo, query, userId); err != nil {
-		return userInfo, fmt.Errorf("error getting comments: %w", err)
+		return userInfo, fmt.Errorf("error getting user info: %w", err)
 	}
 	return userInfo, nil
 }
