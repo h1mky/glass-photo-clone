@@ -9,7 +9,7 @@ import (
 )
 
 func updateUserAvatarAndDescriptionPostgres(ctx context.Context, userID int, patch UserPatchRequest) (UserPage, error) {
-	ctx, cancel := context.WithTimeout(ctx, 5*time.Second)
+	ctx, cancel := context.WithTimeout(ctx, 10*time.Second)
 	defer cancel()
 
 	var query string

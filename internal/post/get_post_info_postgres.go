@@ -9,7 +9,7 @@ import (
 
 func GetPostByID(ctx context.Context, postID int) (PostInfo, error) {
 
-	ctx, cancel := context.WithTimeout(ctx, 5*time.Second)
+	ctx, cancel := context.WithTimeout(ctx, 10*time.Second)
 
 	defer cancel()
 

@@ -7,7 +7,7 @@ import (
 )
 
 func getProfilePage(ctx context.Context, id int) (UserPage, error) {
-	ctx, cancel := context.WithTimeout(ctx, 5*time.Second)
+	ctx, cancel := context.WithTimeout(ctx, 10*time.Second)
 	defer cancel()
 
 	var profile UserPage

@@ -8,7 +8,7 @@ import (
 )
 
 func getAllComments(ctx context.Context, idPost int) ([]Comments, error) {
-	ctx, cancel := context.WithTimeout(ctx, 5*time.Second)
+	ctx, cancel := context.WithTimeout(ctx, 10*time.Second)
 
 	defer cancel()
 

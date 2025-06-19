@@ -7,7 +7,7 @@ import (
 )
 
 func getUserPostsPostgres(ctx context.Context, UserID int) ([]MainPagePost, error) {
-	ctx, cancel := context.WithTimeout(ctx, 5*time.Second)
+	ctx, cancel := context.WithTimeout(ctx, 10*time.Second)
 	defer cancel()
 
 	var posts []MainPagePost
