@@ -14,3 +14,8 @@ type MainPageRegistered struct {
 	Id           int            `db:"id" json:"id"`
 	ProfilePhoto sql.NullString `db:"user_img" json:"user_img"`
 }
+
+type UserPatchRequest struct {
+	UserImg     *string `json:"user_img,omitempty" db:"user_img"`
+	Description *string `json:"description,omitempty" db:"description"`
+}
