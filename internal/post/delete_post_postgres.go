@@ -12,7 +12,8 @@ func deletePostPostgres(ctx context.Context, targetUserID, postID int) (err erro
 	defer cancel()
 
 	query := `DELETE FROM posts WHERE user_id = $1 AND id = $2`
-	if _, err := db.DB.ExecContext(ctx, query, targetUserID, postID); err != nil {
+	_, err = db.DB.ExecContext(ctx, query, targetUserID, postID)
+	if err != nil {
 		log.Printf("ERROR: deletePostPostgres - Failed to delete post: %v", err)
 		return
 	}

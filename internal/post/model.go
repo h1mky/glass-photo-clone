@@ -10,12 +10,13 @@ type MainPagePost struct {
 }
 
 type PostInfo struct {
-	PostID       int       `db:"post_id"`
-	Title        string    `db:"title"`
-	PostImg      string    `db:"post_img"`
-	CreatedAt    time.Time `db:"created_at"`
-	PostAuthor   string    `db:"post_author"`
-	PostAuthorID int       `db:"post_author_id"`
+	PostID        int       `db:"post_id" json:"post_id"`
+	Title         string    `db:"title" json:"title"`
+	PostImg       string    `db:"post_img" json:"post_img"`
+	CreatedAt     time.Time `db:"created_at" json:"created_at"`
+	PostAuthor    string    `db:"post_author" json:"post_author"`
+	PostAuthorID  int       `db:"post_author_id" json:"post_author_id"`
+	PostAuthorIMG string    `db:"post_author_img" json:"post_author_img"`
 }
 
 type CreatePostRequest struct {
