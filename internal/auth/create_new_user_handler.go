@@ -23,10 +23,12 @@ func createNewUserHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	user.Password = common.HashPasswordSHA256(user.Password)
-	user.UserPhoto = defaultUserPhoto
+	if user.UserPhoto == nil {
+		user.UserPhoto = &defaultUserPhoto
+	}
 
 	if err := createNewUserPostgres(ctx, user); err != nil {
-		http.Error(w, fmt.Sprintf("error creating new user: %v", err), http.StatusInternalServerError)
+		http.Error(w, fmt.Sprintf("error creating new user: %v", err), http.StatusBadRequest)
 		return
 	}
 

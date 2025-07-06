@@ -19,6 +19,7 @@ func GetPostByID(ctx context.Context, postID int) (PostInfo, error) {
         p.title,
         p.post_img,
         p.created_at,
+        p.description,
         u.username AS post_author,
         u.id AS post_author_id,
         u.user_img AS post_author_img
