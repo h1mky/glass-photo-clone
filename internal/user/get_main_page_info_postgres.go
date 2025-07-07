@@ -14,7 +14,7 @@ func getMainPageInfoPostgres(ctx context.Context, userId int) (MainPageRegistere
 	var userInfo MainPageRegistered
 
 	query := `
-SELECT id,user_img
+SELECT id,user_img,description,username
 FROM users
 where id = $1
 	`

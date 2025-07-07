@@ -12,6 +12,8 @@ type UserPage struct {
 }
 type MainPageRegistered struct {
 	Id           int    `db:"id" json:"id"`
+	Username     string `db:"username" json:"username"`
+	Description  string `db:"description" json:"description"`
 	ProfilePhoto string `db:"user_img" json:"user_img"`
 }
 
