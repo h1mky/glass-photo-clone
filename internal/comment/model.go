@@ -15,3 +15,10 @@ type Comments struct {
 type CommentPost struct {
 	Content string `json:"content" db:"content" validate:"required"`
 }
+type CommentUser struct {
+	IdComment int       `json:"id" db:"id"`
+	UserId    int       `json:"userId" db:"user_id"`
+	PostId    int       `json:"postId" db:"post_id"`
+	Content   string    `json:"content" db:"content"`
+	CreatedAt time.Time `json:"created_at" db:"created_at"`
+}

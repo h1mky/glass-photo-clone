@@ -43,7 +43,7 @@ func updateUserHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Failed to update user profile due to server error.", http.StatusInternalServerError)
 		return
 	}
-
+	w.WriteHeader(http.StatusOK)
 	common.JsonEncode(w, updatedProfile)
 	log.Printf("INFO: User %d profile updated successfully.", idVal)
 }
