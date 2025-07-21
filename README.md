@@ -15,7 +15,7 @@ This repository contains the backend API for the Glass Photo application. This R
     - [Running the Docker Container](#running-the-docker-container)
 4.  [API Endpoints](#4-api-endpoints) (Optional: Replace with actual API docs or link to them)
 5.  [Contributing](#5-contributing) (Optional)
-6.  [License](#6-license) (Optional)
+
 
 ---
 
