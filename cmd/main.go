@@ -14,8 +14,9 @@ import (
 func main() {
 	err := godotenv.Load()
 	if err != nil {
-		log.Fatalf("Error loading .env file,%s", err)
-	}
+    log.Println(".env file not found, using environment variables")
+}
+
 
 	db.Connect()
 	defer db.DB.Close()
